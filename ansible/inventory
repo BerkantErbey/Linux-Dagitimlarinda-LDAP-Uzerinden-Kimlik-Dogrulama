@@ -1,0 +1,4 @@
+[LDAP]
+34.207.219.172 ansible_user=admin
+[Client]
+54.172.24.46 ansible_user=admin

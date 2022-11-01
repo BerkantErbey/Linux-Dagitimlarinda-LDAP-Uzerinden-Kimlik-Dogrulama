@@ -1,0 +1,93 @@
+dn: ou=users,dc=cloudsio,dc=com
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=cloudsio,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=drivers,ou=groups,dc=cloudsio,dc=com
+objectClass: posixGroup
+cn: drivers
+gidNumber: 3000
+
+
+dn: uid=falonso,ou=users,dc=cloudsio,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: falonso
+uidNumber: 1111
+homeDirectory: /home/falonso
+loginShell: /bin/bash
+gidNumber: 3000
+cn: Fernando Alonso
+sn: Alonso
+userPassword: {SSHA}3fl3VY3UuJyn8SUyf0/LhUHsEX5AJFMu
+
+dn: uid=kraikkonen,ou=users,dc=cloudsio,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: kraikkonen
+uidNumber: 2222
+homeDirectory: /home/kraikkonen
+loginShell: /bin/bash
+gidNumber: 3000
+cn: Kimi Raikkonen
+sn: Raikkonen
+userPassword: {SSHA}+QbNW8XxoxMptus5q4hy4ICP/agpp0aF
+
+dn: uid=kkobayashi,ou=users,dc=cloudsio,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: kkobayashi
+uidNumber: 3333
+homeDirectory: /home/kkobayashi
+loginShell: /bin/bash
+gidNumber: 3000
+cn: Kamui Kobayashi
+sn: Kobayashi
+userPassword: {SSHA}sGYeI6J2pfDgLoCYHSvx5d0MKFay3vOx
+
+dn: uid=rkubica,ou=users,dc=cloudsio,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: rkubica
+uidNumber: 4444
+homeDirectory: /home/rkubica
+loginShell: /bin/bash
+gidNumber: 3000
+cn: Robert Kubica
+sn: Kubica
+userPassword: {SSHA}X1RJkS7K00xwgB4HwF+36npCClhJ6pb0
+
+dn: uid=jbianchi,ou=users,dc=cloudsio,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: jbianchi
+uidNumber: 5555
+homeDirectory: /home/jbianchi
+loginShell: /bin/bash
+gidNumber: 3000
+cn: Jules Bianchi
+sn: Bianchi
+userPassword: {SSHA}YcuWtzq667xXLQYEejoMXP6AxM4YOhbb

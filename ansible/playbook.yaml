@@ -1,0 +1,71 @@
+- name: LDAP Server Tasks
+  hosts: LDAP
+  become: true
+
+  tasks:
+    - hostname:
+        name: ldapserver
+    - name: Install multiple packages
+      register: updatesys
+      apt:
+        update_cache: yes
+        name:
+          - slapd
+          - ldap-utils
+        state: present
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: '{{item}}'
+        dest: '{{item}}'
+        mode: '0644'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      loop:
+        - drivers.ldif
+        - validUsers.sh
+    # - name: Copy file with owner and permissions
+    #   copy:
+    #     src: drivers.ldif
+    #     dest: drivers.ldif
+    #     mode: '0644'
+    #     owner: "{{ ansible_user }}"
+    #     group: "{{ ansible_user }}"
+
+
+    # - name: Copy file with owner and permissions
+    #   copy:
+    #     src: validUsers.sh
+    #     dest: validUsers.sh
+    #     mode: '0644'
+    #     owner: "{{ ansible_user }}"
+    #     group: "{{ ansible_user }}"
+
+- name: Client Server Tasks
+  hosts: Client
+  become: true
+
+  tasks:
+    - hostname:
+        name: client
+    - name: Copy file with owner and permissions
+      copy:
+        src: validUsers.sh
+        dest: validUsers.sh
+        mode: '0644'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+    - name: Allow SSH password authentication
+      lineinfile:
+        dest=/etc/ssh/sshd_config
+        regexp="^PasswordAuthentication"
+        line="PasswordAuthentication yes"
+        state=present
+      notify:
+        - restart sshd
+
+  handlers:
+    - name: restart sshd
+      service:
+        name=sshd
+        state=restarted
